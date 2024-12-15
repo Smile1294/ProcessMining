@@ -4,11 +4,11 @@ from pm4py.objects.petri.check_soundness import check_wfnet
 from pm4py.algo.conformance.tokenreplay.algorithm import apply as token_replay
 
 if __name__ == "__main__":
-    log = pm4py.read_xes('../../../../../ProcessMining/git_log_sanitized.xes')
-a
+    log = pm4py.read_xes('./git_log_sanitized.xes')
+
     print("Log count before filtering: " + str(len(log)))
     log_filtered = auto_filter.apply_auto_filter(log)
-    print("Log count before filtering: " + str(len(log_filtered)))
+    print("Log count after filtering: " + str(len(log_filtered)))
 
     net, initial_marking, final_marking = pm4py.discover_petri_net_inductive(log_filtered, noise_threshold=0.99)
 
